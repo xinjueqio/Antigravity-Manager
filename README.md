@@ -70,16 +70,49 @@ Antigravity 的反代服务并非简单的请求转发，而是一个完整的 *
 - **自动转换**: 无论使用哪种协议,底层都会自动转换为 Gemini 格式,实现完美兼容
 
 <details>
-<summary>📘 Claude Code CLI 使用示例</summary>
+<summary>📘 Claude Code CLI 配置指南</summary>
 
+#### 快速配置
+
+**临时使用** (每次打开终端时运行):
 ```bash
-# 设置环境变量
+export ANTHROPIC_API_KEY="sk-antigravity"  # 使用应用生成的 API Key
+export ANTHROPIC_BASE_URL="http://127.0.0.1:8045"
+claude "写一个快速排序算法"
+```
+
+**永久配置** (一次设置,永久生效):
+```bash
+# 编辑配置文件 (macOS/Linux)
+nano ~/.zshrc
+
+# 添加以下内容到文件末尾
 export ANTHROPIC_API_KEY="sk-antigravity"
 export ANTHROPIC_BASE_URL="http://127.0.0.1:8045"
 
-# 直接使用 Claude CLI
-claude "写一个快速排序算法"
+# 保存后重新加载
+source ~/.zshrc
 ```
+
+#### 使用示例
+
+```bash
+# 基本对话
+claude "1+1 等于几"
+
+# 多轮对话
+claude "我问了什么问题"
+
+# 代码生成
+claude "用 Python 写一个快速排序算法"
+```
+
+#### 注意事项
+
+1. **确保服务运行**: 使用前确保 Antigravity API 代理服务正在运行
+2. **API Key**: 在 "API 反代" 页面复制生成的 API Key
+3. **端口配置**: 默认端口 8045,如有修改需同步更新 `ANTHROPIC_BASE_URL`
+
 </details>
 
 ### 🖼️ 能力展示 (Showcase)

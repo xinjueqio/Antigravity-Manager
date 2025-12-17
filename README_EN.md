@@ -57,6 +57,59 @@ Fully compatible with OpenAI's `messages` format. Multi-turn conversations work 
   <img src="docs/images/v3/proxy-chat-demo.png" width="80%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 </div>
 
+### 3. 🔗 Multi-Protocol Support (NEW!)
+
+Supports both **OpenAI** and **Anthropic API** formats:
+- **OpenAI Protocol**: `/v1/chat/completions` - Compatible with Cursor, Windsurf, NextChat, etc.
+- **Anthropic Protocol**: `/v1/messages` - Native support for Claude Code CLI and other tools
+- **Auto Conversion**: Automatically converts requests to Gemini format for perfect compatibility
+
+<details>
+<summary>📘 Claude Code CLI Setup Guide</summary>
+
+#### Quick Setup
+
+**Temporary Use** (run each time you open terminal):
+```bash
+export ANTHROPIC_API_KEY="sk-antigravity"  # Use the API Key from the app
+export ANTHROPIC_BASE_URL="http://127.0.0.1:8045"
+claude "write a quicksort algorithm"
+```
+
+**Permanent Setup** (one-time configuration):
+```bash
+# Edit config file (macOS/Linux)
+nano ~/.zshrc
+
+# Add these lines to the end
+export ANTHROPIC_API_KEY="sk-antigravity"
+export ANTHROPIC_BASE_URL="http://127.0.0.1:8045"
+
+# Reload config
+source ~/.zshrc
+```
+
+#### Usage Examples
+
+```bash
+# Basic conversation
+claude "what is 1+1"
+
+# Multi-turn conversation
+claude "what did I just ask"
+
+# Code generation
+claude "write a quicksort in Python"
+```
+
+#### Notes
+
+1. **Ensure Service Running**: Make sure Antigravity API Proxy is running before use
+2. **API Key**: Copy the generated API Key from "API Proxy" page
+3. **Port Configuration**: Default port is 8045, update `ANTHROPIC_BASE_URL` if changed
+
+</details>
+
 ### 3. Connect
 
 <div align="center">
